@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Jumpin' Jive</title>
+<script language="JavaScript">
+// The pages array holds the descriptions of the pages
+var pages = new Array(
+    "Select a Page",
+    "Autos",
+    "Business and Careers",
+    "Computing",
+    "Entertainment",
+    "Games");
+
+// The urls array holds the URLs of the pages
+var urls = new Array(
+    "",
+    "autos.html",
+    "business.html",
+    "computing.html",
+    "entertainment.html",
+    "games.html");
+
+// The goPage() function determines which page is selected and goes to it
+function goPage(form) {
+    var i = form.jumpMenu.selectedIndex;
+    if (i != 0) {
+        window.location = urls[i];
+    }
+}
+</script>
+</head>
+
+<body>
+<p>Choose a Page and Jump:</p>
+<script language="JavaScript">
+// The select menu is displayed wherever you place this code 
+document.write('<form>');
+document.write('<select name="jumpMenu" onChange="goPage(this.form);">');
+for (var i = 0; i < pages.length; i++) {
+    document.write('<option>' + pages[i] + '</option>');
+}
+document.write('</select>');
+document.write('</form>');
+</script>
+</body>
+</html>

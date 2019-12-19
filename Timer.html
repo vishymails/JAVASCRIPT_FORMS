@@ -1,0 +1,31 @@
+<HTML>
+<HEAD>
+<SCRIPT>
+var myTimer;
+
+
+function fireIt () {
+   var now = new Date();
+   var displayStr = now + "\r\n"; 
+   window.document.theForm.myOutput.value = displayStr;
+}
+function startIt () {
+
+   myTimer = setInterval("fireIt()", 1000);
+}
+function stopIt() {
+   clearInterval(myTimer);
+}
+
+</SCRIPT>
+</HEAD>
+<BODY>
+<TABLE>
+<FORM name="theForm">
+     <input type=button value="Start!" onClick="startIt ();">
+     <input type=button value="Stop!" onClick="stopIt();">
+     <textarea name="myOutput" cols = 60 rows=20></textarea>
+</FORM>
+</TABLE>
+</BODY>
+</HTML>

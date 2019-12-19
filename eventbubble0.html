@@ -1,0 +1,51 @@
+<html> 
+
+<head> 
+<title>W3C DOM Event Propagation</title> 
+<script type="text/javascript"> 
+function init() { 
+    window.onclick = winEvent; 
+    document.onclick = docEvent; 
+    document.body.onclick = docBodEvent; 
+    document.addEventListener("click", docEvent, true); 
+    document.forms[0].addEventListener("click", formCaptureEvent, true); 
+    document.forms[0].addEventListener("click", formBubbleEvent, false); 
+} 
+function winEvent(evt) { 
+    alert("window object level (" + getPhase(evt) + ")."); 
+} 
+function docEvent(evt) { 
+    alert("Document level (" + getPhase(evt) + ")."); 
+} 
+function docBodEvent(evt) { 
+    alert("BODY level (" + getPhase(evt) + ")."); 
+} 
+function formCaptureEvent(evt) { 
+    alert("FORM only on CAPTURE."); 
+} 
+function formBubbleEvent(evt) { 
+    alert("FORM only on BUBBLE."); 
+} 
+function getPhase(evt) { 
+    switch (evt.eventPhase) { 
+        case 1: 
+        return "CAPTURING"; 
+            break; 
+        case 2: 
+        return "AT TARGET"; 
+            break; 
+        case 3: 
+        return "BUBBLING"; 
+            break; 
+        default: 
+        return ""; 
+    } 
+} 
+</script> 
+</head> 
+<body onload="init()"> 
+<form> 
+<input type="button" value="Button 'main1'" name="main1" onclick="alert('button (' + getPhase(event) + ').')" /> 
+</form> 
+</body> 
+</html>

@@ -1,0 +1,60 @@
+<html>
+<head><title>We Want To Know What You Think!</title>
+<script>
+// Check for valid email address: look for @ and .
+function isEmail(elm) {
+    if (elm.value.indexOf("@") != "-1" &&
+        elm.value.indexOf(".") != "-1") {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+// Check for blank fields
+function isFilled(elm) {
+    if (elm.value == "" || elm.value == null) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+// Check entire form
+function isReady(form) {
+    if (isEmail(form.address) == false) {          // A real email address?
+        alert("Please enter a valid email address.");
+        form.address.focus();
+        return false;
+    }
+
+    if (isFilled(form.fullname) == false) {        // A full name?
+        alert("Please enter your name.");
+        form.fullname.focus();
+        return false;
+    }
+
+    if (isFilled(form.opinion) == false) {         // A message/opinion?
+        alert("Please enter your opinion.");
+        form.opinion.focus();
+        return false;
+    }
+
+    return true;
+}
+</script>
+</head>
+
+<body>
+<form name="mailForm" action="" method="post"
+      onSubmit = "return isReady(this);">
+<p>Your name: <input name="fullname" type="text">
+Your email: <input name="address" type="text"></p>
+<p>Your opinion:</p>
+<p><textarea name="opinion" rows="6" cols="50" wrap="wrap"></textarea></p>
+<p><input type="submit" value="Send">
+<input type="reset" value="Trash"></p>
+</form>
+</body>
+</html>

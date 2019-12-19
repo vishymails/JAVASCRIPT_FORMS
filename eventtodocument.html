@@ -1,0 +1,19 @@
+<html> 
+
+<head> 
+<title>W3C DOM Event Propagation</title> 
+<script type="text/javascript"> 
+function init() { 
+
+    document.addEventListener("click", docEvent, true); 
+} 
+
+function docEvent(evt) { 
+    alert("Document level."); 
+} 
+
+</script> 
+</head> 
+<body onload="init()"> 
+</body> 
+</html>

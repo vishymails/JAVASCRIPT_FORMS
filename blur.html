@@ -1,0 +1,21 @@
+<html>
+<head>
+<title></title>
+<script type="text/javascript">
+window.onload=setObjects;
+
+function setObjects() {
+   document.personData.firstName.onblur=testValue;
+}
+
+function testValue() {
+   document.write(this.value);
+}
+</script>
+</head>
+<body>
+<form name="personData">
+First Name: <input type="text" name="firstName" />
+</form>
+</body>
+</html>

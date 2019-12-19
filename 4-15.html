@@ -1,0 +1,41 @@
+<html>
+<head><title>Phone Number?</title>
+<script language="JavaScript">
+function isPhone(elm) {
+    if (elm.value.length != 12) {
+        return false;
+    }
+    for (var i = 0; i < elm.value.length; i++) {
+        if ((i > -1 && i < 3) || (i > 3 && i < 7) || (i > 7 && i < 12)) {
+            if (elm.value.charAt(i) < "0" || elm.value.charAt(i) > "9") {
+                return false;
+            }
+        }
+        else if (elm.value.charAt(i) != "-") {
+            return false;
+       }
+    }
+    return true;
+}
+
+function isReady(form) {
+    if (isPhone(form.phone) == false) {
+        alert("Please enter a phone number.");
+        form.phone.focus();
+        return false;
+    }
+    return true;
+}
+</script>
+</head>
+
+<body>
+</form>
+<h1>Enter Your Phone Number</h1>
+<form name="feedbackForm" onSubmit="return isReady(this);" method="post"
+      action="">
+<input type="text" name="phone">
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>

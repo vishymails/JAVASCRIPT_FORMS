@@ -1,0 +1,58 @@
+<html>
+<head><title>Madlibs Form</title>
+<script language="JavaScript">
+function makeMadlibs() {
+    var story = "<html><head><title>Julius Caesar</title></head>" + 
+        "<body><h1>Julius Caesar 'Libs</h1><p>" +
+        "Friends, Romans, " + 
+        document.madlibs.input1.value + ", lend me your " + 
+        document.madlibs.input2.value + ";<br>I come to " + 
+        document.madlibs.input3.value + " Caesar, not to praise him.<br>" + 
+        "The evil that men do lives after them;<br>" +
+        "The good is oft interred with their " + 
+        document.madlibs.input4.value + ";<br>So let it be with " + 
+        document.madlibs.input5.value + ". " + 
+        "The noble Brutus<br> Hath told you Caesar was " + 
+        document.madlibs.input6.value + ":<br>" +
+        "If it were so, it was a grievous fault,<br>" +
+        "And grievously hath Caesar answer'd it.</p></body></html>";
+    libsWin = window.open("", "madlibs",
+        "width=400,height=250,scrollbars=yes");
+    libsWin.document.write(story);
+    libsWin.document.close();
+}
+</script>
+</head>
+
+<body>
+  <form name="madlibs">
+    <table>
+      <tr>
+        <td>Plural Noun:</td>
+        <td><input type="text" name="input1"></td>
+      </tr>
+      <tr>
+        <td>Part of Body:</td>
+        <td><input type="text" name="input2"></td>
+      </tr>
+      <tr>
+        <td>Verb:</td>
+        <td><input type="text" name="input3"></td>
+      </tr>
+      <tr>
+        <td>Plural Noun:</td>
+        <td><input type="text" name="input4"></td>
+      </tr>
+      <tr>
+        <td>Politician:</td>
+        <td><input type="text" name="input5"></td>
+      </tr>
+      <tr>
+        <td>Adjective:</td>
+        <td><input type="text" name="input6"></td>
+      </tr>
+    </table>
+    <input type="button" value="Create Story" onClick="makeMadlibs();">
+  </form>
+</body>
+</html>

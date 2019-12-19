@@ -1,0 +1,37 @@
+<html>
+<head><title>Alphabetic?</title>
+<script language="JavaScript">
+function isAlpha(elm) {
+    if (elm.value == "") {
+        return false;
+    }
+    for (var i = 0; i < elm.value.length; i++) {
+        if ((elm.value.charAt(i) < "a" || elm.value.charAt(i) > "z") &&
+           (elm.value.charAt(i) < "A" || elm.value.charAt(i) > "Z")) {
+            return false; 
+        }
+    }
+    return true;
+}
+
+function isReady(form) {
+    if (isAlpha(form.alpha) == false) {
+        alert("Please enter letters only.");
+        form.alpha.focus();
+        return false;
+    }
+    return true;
+}
+</script>
+</head>
+
+<body>
+</form>
+<h1>Enter Some Letters</h1>
+<form name="feedbackForm" onSubmit="return isReady(this);" method="post"
+      action="">
+<input type="text" name="alpha">
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>

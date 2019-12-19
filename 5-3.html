@@ -1,0 +1,27 @@
+<html>
+<head><title>Random Tagline Generator</title>
+<script language="Javascript">
+// Create the array
+var tagline = new Array();
+
+tagline[0] = "the Plastic.com it's okay to like";
+tagline[1] = "weblog as conversation";
+tagline[2] = "you're wrong. no, you're wrong!";
+tagline[3] = "self-policing since 1999";
+tagline[4] = "we're all in this together";
+
+// Random number generator
+function randomNumber(n) {
+    number = Math.floor(Math.random() * (n + 1));
+    return number;
+}
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<script language="JavaScript">
+// Display the random tagline
+document.write(tagline[randomNumber(tagline.length - 1)]);
+</script>
+</body>
+</html>

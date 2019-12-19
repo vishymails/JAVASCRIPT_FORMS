@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<SCRIPT>
+var timerID;
+var x;
+
+function Thing (name) {
+   this.name = name;
+}
+
+function fireIt () {
+   var now = new Date();
+   var displayStr = window.document.theForm.txtFired.value; 
+   displayStr += x.name +  " " + now + "\r\n"; 
+   document.theForm.txtFired.value = displayStr;
+}
+
+function startIt (name) {
+   x = new Thing (name);
+   timerID = setInterval("fireIt()", 1000);
+}
+
+function stopIt() {
+   clearInterval(timerID);
+}
+
+</SCRIPT>
+</HEAD>
+<BODY>
+<FORM name="theForm">
+Name your object:<input type=text name="txtName">
+                 <input type=button value="Start!" onClick="startIt (txtName.value);">
+                 <input type=button value="Stop!"  onClick="stopIt();">
+<textarea name="txtFired" cols = 60 rows=20></textarea>
+</FORM>
+</BODY>
+</HTML>

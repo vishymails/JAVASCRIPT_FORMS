@@ -1,0 +1,26 @@
+<html>
+<head><title>Feedback</title>
+<script language="JavaScript">
+function isReady(form) {
+    if (form.message.value != "") {
+        return true;
+    }
+    else { 
+        alert("Please include a message.");
+        form.message.focus();
+        return false;
+    }
+}
+</script>
+</head>
+
+<body>
+<h1>Send Us A Message</h1>
+<form name="feedbackForm" onSubmit="return isReady(this);" method="post"
+      action="">
+<p><textarea name="message" rows="6" cols="20" wrap="wrap"></textarea></p>
+<p><input type="submit" value="Submit">
+<input type="reset" value="Reset"></p>
+</form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html> 
+
+<head> 
+<title>W3C DOM Event Propagation</title> 
+<script type="text/javascript"> 
+function init() { 
+    document.body.onclick = docBodEvent; 
+    document.addEventListener("click", docEvent, true); 
+    document.forms[0].addEventListener("click", formCaptureEvent, true); 
+    document.forms[0].addEventListener("click", formBubbleEvent, false); 
+} 
+function docBodEvent(evt) { 
+    if (evt.target.type == "button") { 
+       alert("BODY"); 
+    } 
+} 
+function formCaptureEvent(evt) { 
+    if (evt.target.type == "button") { 
+        alert("This alert triggered by FORM only on CAPTURE."); 
+        if (document.forms[0].stopAllProp.checked) { 
+            evt.stopPropagation(); 
+        } 
+    } 
+} 
+function formBubbleEvent(evt) { 
+    if (evt.target.type == "button") { 
+        alert("This alert triggered by FORM only on BUBBLE."); 
+        if (document.forms[0].stopDuringBubble.checked) { 
+            evt.preventBubble(); 
+        } 
+    } 
+} 
+</script> 
+</head> 
+<body onload="init()"> 
+<form> 
+<input type="checkbox" name="stopAllProp" />Stop all propagation at FORM
+<input type="checkbox" name="stopDuringBubble" />Prevent bubbling past FORM 
+<input type="button" value="Button 'main1'" name="main1" onclick="alert('button')" /> 
+</form> 
+</body> 
+</html>

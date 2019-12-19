@@ -1,0 +1,26 @@
+<html onclick="alert('Event is now at the HTML element.')"> 
+<head> 
+<title>Event Bubbles</title> 
+<script type="text/javascript"> 
+function init() { 
+    window.onclick = winEvent 
+    document.onclick = docEvent; 
+    document.body.onclick = docBodEvent; 
+} 
+function winEvent() { 
+    alert("window object level."); 
+} 
+function docEvent() { 
+    alert("document object level."); 
+} 
+function docBodEvent() { 
+    alert("BODY element."); 
+} 
+</script> 
+</head> 
+<body onload="init()"> 
+<form onclick="alert('FORM')"> 
+<input type="button" value="Button 'main1'" name="main1" onclick="alert('Button: ' + this.name)" /> 
+</form> 
+</body> 
+</html>

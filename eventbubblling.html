@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Event Bubbling</title>
+<script type="text/javascript">
+function mouseDown(nsEvent) {
+  var theEvent = nsEvent ? nsEvent : window.event;
+  var locString = "X = " + theEvent.screenX + " Y = " + theEvent.screenY;
+  var theSrc = theEvent.target ? theEvent.target : theEvent.srcElement;
+  document.write(locString + " " + theSrc);
+}
+
+document.onmousedown=function (evnt) {
+   var theEvnt = evnt? evnt : window.event;
+   document.write(theEvnt.type);
+}
+
+
+window.onload=function () {
+   document.getElementById("first").onmousedown=mouseDown;
+   document.getElementById("second").onmousedown=function () {
+      document.write("Second event handler");
+   }
+}
+
+</script>
+
+</head>
+<body>
+<div id="first" style="padding: 20px; background-color: #ffff0; width: 150px">
+  <div id="second" style="background-color: #ff0000; width: 100px; height: 100px"></div>
+</div>
+</body>
+</html>
